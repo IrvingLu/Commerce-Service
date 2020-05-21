@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.2" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Consul" Version="0.7.2.6" />
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="DotNetCore.CAP" Version="3.0.2" />
+    <PackageReference Include="DotNetCore.CAP.MySql" Version="3.0.2" />
+    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="3.0.2" />
+    <PackageReference Include="MediatR" Version="8.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.1.3" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DomainEvent\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared.Infrastructure.Core\Shared.Infrastructure.Core.csproj" />
+  </ItemGroup>
+
+</Project>

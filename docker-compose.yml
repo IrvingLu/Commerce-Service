@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  order.web:
+    image: ${DOCKER_REGISTRY-}orderweb
+    build:
+      context: .
+      dockerfile: MicroService/Order/Order.Web/Dockerfile
+
+  pay.web:
+    image: ${DOCKER_REGISTRY-}payweb
+    build:
+      context: .
+      dockerfile: MicroService/Pay/Pay.Web/Dockerfile
+
+
+  identity.web:
+    image: ${DOCKER_REGISTRY-}identityweb
+    build:
+      context: .
+      dockerfile: MicroService/Identity/Identity.Web/Dockerfile
+
+
+  user.web:
+    image: ${DOCKER_REGISTRY-}userweb
+    build:
+      context: .
+      dockerfile: MicroService/User/User.Web/Dockerfile
+

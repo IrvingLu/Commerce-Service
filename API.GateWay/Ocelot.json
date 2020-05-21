@@ -1,0 +1,66 @@
+{
+  "ReRoutes": [
+    ///认证
+    {
+      "DownstreamPathTemplate": "/connect/token",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/connect/token",
+      "UpstreamHttpMethod": [ "Post" ],
+      "ServiceName": "IdentityService",
+      "LoadBalancer": "LeastConnection",
+      "UseServiceDiscovery": true
+    },
+    ///订单
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/order/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ServiceName": "OrderService",
+      "LoadBalancer": "LeastConnection",
+      "UseServiceDiscovery": true,
+      //认证服务
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    ///支付
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/pay/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ServiceName": "PayService",
+      "LoadBalancer": "LeastConnection",
+      "UseServiceDiscovery": true,
+      //认证服务
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    ///用户
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/user/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ServiceName": "UserService",
+      "LoadBalancer": "LeastConnection",
+      "UseServiceDiscovery": true,
+      //认证服务
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://0.0.0.0:5000",
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500
+    }
+  }
+}

@@ -1,0 +1,22 @@
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
+WORKDIR /src
+COPY ["Pay/Pay.Web/Pay.Web.csproj", "Pay/Pay.Web/"]
+COPY ["Pay/Pay.Service/Pay.Service.csproj", "Pay/Pay.Service/"]
+COPY ["Pay/Pay.Core/Pay.Core.csproj", "Pay/Pay.Core/"]
+COPY ["Pay/Pay.Infrastructure/Pay.Infrastructure.csproj", "Pay/Pay.Infrastructure/"]
+RUN dotnet restore "Pay/Pay.Web/Pay.Web.csproj"
+COPY . .
+WORKDIR "/src/Pay/Pay.Web"
+RUN dotnet build "Pay.Web.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Pay.Web.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Pay.Web.dll"]
