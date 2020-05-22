@@ -22,7 +22,7 @@
 ## 文件夹结构
 
 > ApiGateway --网关<br>
-> MicroService --各个微服务
+> MicroService --各个微服务<br>
 > Shared --微服务通用
 
 ## 微服务
