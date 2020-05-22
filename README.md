@@ -19,6 +19,12 @@
 
 > Consul，Ocelot，EF Core，Dapper，Cap（Eventbus），AutoMapper，CQRS等
 
+## 预计更新
+
+> 熔断限流<br>
+> RPC远程调用<br>
+> 结合ELK 日志系统
+
 ## 文件夹结构
 
 > ApiGateway --网关<br>
