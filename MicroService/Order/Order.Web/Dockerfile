@@ -9,6 +9,8 @@ WORKDIR /src
 COPY ["MicroService/Order/Order.Web/Order.Web.csproj", "MicroService/Order/Order.Web/"]
 COPY ["MicroService/Order/Order.Infrastructure/Order.Infrastructure.csproj", "MicroService/Order/Order.Infrastructure/"]
 COPY ["MicroService/Order/Order.Core/Order.Core.csproj", "MicroService/Order/Order.Core/"]
+COPY ["Shared/Shared.Infrastructure.Core/Shared.Infrastructure.Core.csproj", "Shared/Shared.Infrastructure.Core/"]
+COPY ["Shared/Shared.Domain.Abstractions/Shared.Domain.Abstractions.csproj", "Shared/Shared.Domain.Abstractions/"]
 RUN dotnet restore "MicroService/Order/Order.Web/Order.Web.csproj"
 COPY . .
 WORKDIR "/src/MicroService/Order/Order.Web"

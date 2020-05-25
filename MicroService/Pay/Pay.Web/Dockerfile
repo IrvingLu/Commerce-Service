@@ -9,6 +9,8 @@ WORKDIR /src
 COPY ["MicroService/Pay/Pay.Web/Pay.Web.csproj", "MicroService/Pay/Pay.Web/"]
 COPY ["MicroService/Pay/Pay.Infrastructure/Pay.Infrastructure.csproj", "MicroService/Pay/Pay.Infrastructure/"]
 COPY ["MicroService/Pay/Pay.Core/Pay.Core.csproj", "MicroService/Pay/Pay.Core/"]
+COPY ["Shared/Shared.Infrastructure.Core/Shared.Infrastructure.Core.csproj", "Shared/Shared.Infrastructure.Core/"]
+COPY ["Shared/Shared.Domain.Abstractions/Shared.Domain.Abstractions.csproj", "Shared/Shared.Domain.Abstractions/"]
 RUN dotnet restore "MicroService/Pay/Pay.Web/Pay.Web.csproj"
 COPY . .
 WORKDIR "/src/MicroService/Pay/Pay.Web"

@@ -14,7 +14,7 @@ namespace Order.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.0")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Order.Core.Domain.Order", b =>
@@ -29,8 +29,7 @@ namespace Order.Infrastructure.Migrations
                         .HasMaxLength(50);
 
                     b.Property<int>("OrderStatus")
-                        .HasColumnType("int")
-                        .HasMaxLength(50);
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

@@ -29,8 +29,8 @@ namespace User.Core.Domain.Authorization
         public string Avatar { get; set; }
 
         /// <summary>
-        /// 收货地址
+        /// 昵称 
         /// </summary>
-        public Address Address { get; set; }
+        public string NickName { get; set; }
     }
 }

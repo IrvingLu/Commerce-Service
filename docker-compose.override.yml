@@ -1,11 +1,18 @@
 version: '3.4'
 
 services:
+  identity.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
   order.web:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
+
 
   pay.web:
     environment:
@@ -14,7 +21,21 @@ services:
       - "80"
 
 
-  identity.web:
+  product.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+
+  sales.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+
+  search.web:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:

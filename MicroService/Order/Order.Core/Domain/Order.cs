@@ -17,6 +17,7 @@
 ///
 /// ***********************************************************************
 
+using Order.Core.Enums;
 using Shared.Domain.Abstractions;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -35,7 +36,6 @@ namespace Order.Core.Domain
         /// 订单状态
         /// </summary>
         [Required]
-        [MaxLength(50)]
-        public int OrderStatus { get; set; }
+        public OrderStatus OrderStatus { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace User.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.0")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -177,6 +177,9 @@ namespace User.Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("NickName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
                         .HasMaxLength(256);
@@ -265,34 +268,6 @@ namespace User.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("User.Core.Domain.Authorization.ApplicationUser", b =>
-                {
-                    b.OwnsOne("User.Core.Domain.Address", "Address", b1 =>
-                        {
-                            b1.Property<string>("ApplicationUserId")
-                                .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
-
-                            b1.Property<string>("City")
-                                .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                            b1.Property<string>("County")
-                                .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                            b1.Property<string>("Province")
-                                .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                            b1.Property<string>("Street")
-                                .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                            b1.HasKey("ApplicationUserId");
-
-                            b1.ToTable("AspNetUsers");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ApplicationUserId");
-                        });
                 });
 #pragma warning restore 612, 618
         }

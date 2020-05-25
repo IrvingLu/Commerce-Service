@@ -1,4 +1,13 @@
 {
+  ///全局配置
+  "GlobalConfiguration": {
+    "BaseUrl": "http://0.0.0.0:5000",
+    "ServiceDiscoveryProvider": {
+      "Host": "192.168.1.42",
+      "Port": 8500
+    }
+  },
+  //路由配置
   "ReRoutes": [
     ///认证
     {
@@ -40,6 +49,51 @@
         "AllowedScopes": []
       }
     },
+    ///商品
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/product/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ServiceName": "ProductService",
+      "LoadBalancer": "LeastConnection",
+      "UseServiceDiscovery": true,
+      //认证服务
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    ///营销
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/sales/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ServiceName": "SalesService",
+      "LoadBalancer": "LeastConnection",
+      "UseServiceDiscovery": true,
+      //认证服务
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    ///搜索
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/search/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ServiceName": "SearchService",
+      "LoadBalancer": "LeastConnection",
+      "UseServiceDiscovery": true,
+      //认证服务
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
     ///用户
     {
       "DownstreamPathTemplate": "/{everything}",
@@ -55,12 +109,5 @@
         "AllowedScopes": []
       }
     }
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "http://0.0.0.0:5000",
-    "ServiceDiscoveryProvider": {
-      "Host": "localhost",
-      "Port": 8500
-    }
-  }
+  ]
 }
