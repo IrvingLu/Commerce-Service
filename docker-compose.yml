@@ -1,0 +1,50 @@
+version: '3.4'
+
+services:
+  identity.web:
+    image: ${DOCKER_REGISTRY-}identityweb
+    build:
+      context: .
+      dockerfile: MicroService/Identity/Identity.Web/Dockerfile
+
+  order.web:
+    image: ${DOCKER_REGISTRY-}orderweb
+    build:
+      context: .
+      dockerfile: MicroService/Order/Order.Web/Dockerfile
+
+
+  pay.web:
+    image: ${DOCKER_REGISTRY-}payweb
+    build:
+      context: .
+      dockerfile: MicroService/Pay/Pay.Web/Dockerfile
+
+
+  product.web:
+    image: ${DOCKER_REGISTRY-}productweb
+    build:
+      context: .
+      dockerfile: MicroService/Product/Product.Web/Dockerfile
+
+
+  sales.web:
+    image: ${DOCKER_REGISTRY-}salesweb
+    build:
+      context: .
+      dockerfile: MicroService/Sales/Sales.Web/Dockerfile
+
+
+  search.web:
+    image: ${DOCKER_REGISTRY-}searchweb
+    build:
+      context: .
+      dockerfile: MicroService/Search/Search.Web/Dockerfile
+
+
+  user.web:
+    image: ${DOCKER_REGISTRY-}userweb
+    build:
+      context: .
+      dockerfile: MicroService/User/User.Web/Dockerfile
+
